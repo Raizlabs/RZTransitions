@@ -34,6 +34,7 @@
 #import "RZTransitionsAnimationControllers.h"
 #import "RZTransitionInteractionControllerProtocol.h"
 #import "RZTransitionsManager.h"
+#import "RZCrossFadAnimationController.h"
 
 @interface RZSimpleViewController () <RZTransitionInteractionControllerDelegate>
 
@@ -79,7 +80,7 @@
                                                 forAction:RZTransitionAction_PushPop];
     
 	// Setup the animations for presenting and dismissing a new VC
-    [[RZTransitionsManager shared] setAnimationController:[[RZCirclePushAnimationController alloc] init]
+    [[RZTransitionsManager shared] setAnimationController:[[RZCrossFadAnimationController alloc] init]
                                        fromViewController:[self class]
                                                 forAction:RZTransitionAction_PresentDismiss];
 }

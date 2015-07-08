@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D954C631B4D31DE0060F951 /* RZCrossFadAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D954C621B4D31DE0060F951 /* RZCrossFadAnimationController.m */; };
 		833E36A8184E29C300A0326A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833E36A7184E29C300A0326A /* Foundation.framework */; };
 		833E36AA184E29C300A0326A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833E36A9184E29C300A0326A /* CoreGraphics.framework */; };
 		833E36AC184E29C300A0326A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833E36AB184E29C300A0326A /* UIKit.framework */; };
@@ -59,6 +60,8 @@
 
 /* Begin PBXFileReference section */
 		1AFF28BF77D4456B8788B566 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D954C611B4D31DE0060F951 /* RZCrossFadAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZCrossFadAnimationController.h; sourceTree = "<group>"; };
+		6D954C621B4D31DE0060F951 /* RZCrossFadAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZCrossFadAnimationController.m; sourceTree = "<group>"; };
 		833E36A4184E29C300A0326A /* RZTransitions-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RZTransitions-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		833E36A7184E29C300A0326A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		833E36A9184E29C300A0326A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -337,6 +340,8 @@
 				9A0F7C8E195A0B9500271D1D /* RZZoomBlurAnimationController.m */,
 				9A0F7C8F195A0B9500271D1D /* RZZoomPushAnimationController.h */,
 				9A0F7C90195A0B9500271D1D /* RZZoomPushAnimationController.m */,
+				6D954C611B4D31DE0060F951 /* RZCrossFadAnimationController.h */,
+				6D954C621B4D31DE0060F951 /* RZCrossFadAnimationController.m */,
 			);
 			path = Transitions;
 			sourceTree = "<group>";
@@ -489,6 +494,7 @@
 				9A0F7C9C195A0B9500271D1D /* RZVerticalSwipeInteractionController.m in Sources */,
 				833E36E9184E5A9A00A0326A /* RZTransitionsDemoAppDelegate.m in Sources */,
 				9A0F7C9E195A0B9500271D1D /* RZCardSlideAnimationController.m in Sources */,
+				6D954C631B4D31DE0060F951 /* RZCrossFadAnimationController.m in Sources */,
 				9A0F7C9A195A0B9500271D1D /* RZOverscrollInteractionController.m in Sources */,
 				9A0F7C9B195A0B9500271D1D /* RZPinchInteractionController.m in Sources */,
 				9A0F7C98195A0B9500271D1D /* RZBaseSwipeInteractionController.m in Sources */,
