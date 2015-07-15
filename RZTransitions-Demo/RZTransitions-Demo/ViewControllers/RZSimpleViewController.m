@@ -35,6 +35,8 @@
 #import "RZTransitionInteractionControllerProtocol.h"
 #import "RZTransitionsManager.h"
 #import "RZCrossFadAnimationController.h"
+#import "RZZoomFromPointAnimationController.h"
+
 
 @interface RZSimpleViewController () <RZTransitionInteractionControllerDelegate>
 
@@ -80,7 +82,12 @@
                                                 forAction:RZTransitionAction_PushPop];
     
 	// Setup the animations for presenting and dismissing a new VC
-    [[RZTransitionsManager shared] setAnimationController:[[RZCrossFadAnimationController alloc] init]
+    RZZoomFromPointAnimationController *animation= [[RZZoomFromPointAnimationController alloc] init];
+    animation.color= [UIColor redColor];
+    animation.origin = CGPointMake(1, 1);
+    
+    
+    [[RZTransitionsManager shared] setAnimationController:animation
                                        fromViewController:[self class]
                                                 forAction:RZTransitionAction_PresentDismiss];
 }
