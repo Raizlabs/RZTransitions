@@ -71,6 +71,9 @@
                 
                 [coverView removeFromSuperview];
                 
+                //this makes sure our contraints are reset and updated
+                toViewController.view.frame= container.bounds;
+                
                 //transition completed
                 [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
             }];
@@ -127,6 +130,10 @@
                                  
                              } completion:^(BOOL finished) {
                                  [coverView removeFromSuperview];
+                                 
+                                 //this makes sure our contraints are reset and updated
+                                 toViewController.view.frame= container.bounds;
+                                 
                                  [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                                  
                              }];
