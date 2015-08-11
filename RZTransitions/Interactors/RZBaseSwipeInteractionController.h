@@ -32,7 +32,7 @@
 @interface RZBaseSwipeInteractionController : UIPercentDrivenInteractiveTransition
     <RZTransitionInteractionController, UIGestureRecognizerDelegate>
 
-@property (nonatomic, strong) UIViewController *fromViewController;
+@property (nonatomic, weak) UIViewController *fromViewController; //avoid locked two way reference
 @property (nonatomic, strong) UIPanGestureRecognizer *gestureRecognizer;
 @property (nonatomic, assign) BOOL reverseGestureDirection;
 
