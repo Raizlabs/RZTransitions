@@ -58,6 +58,10 @@
             
             //insert the target view under this cover view
             [container insertSubview:toViewController.view belowSubview:coverView];
+            
+            //this makes sure our contraints are reset and updated
+            toViewController.view.frame= container.bounds;
+            
             [toViewController viewWillAppear:YES];
             
             
@@ -70,9 +74,6 @@
                
                 
                 [coverView removeFromSuperview];
-                
-                //this makes sure our contraints are reset and updated
-                toViewController.view.frame= container.bounds;
                 
                 //transition completed
                 [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
