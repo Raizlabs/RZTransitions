@@ -34,14 +34,16 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             //toViewController.view.transform = CGAffineTransformIdentity;
-                             //fromViewController.view.transform = CGAffineTransformMakeScale(1.0 + kRZPushScaleChangePct, 1.0 + kRZPushScaleChangePct);
+                             
                              fromViewController.view.alpha = 0.0f;
                          }
                          completion:^(BOOL finished) {
-                             //toViewController.view.transform = CGAffineTransformIdentity;
-                             //fromViewController.view.transform = CGAffineTransformIdentity;
+                             
                              fromViewController.view.alpha = 1.0f;
+                             
+                             //this makes sure our contraints are reset and updated
+                             toViewController.view.frame= container.bounds;
+
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
     }
@@ -56,9 +58,9 @@
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
-                             //toViewController.view.transform = CGAffineTransformIdentity;
+                             
                              toViewController.view.alpha = 1.0f;
-                             //fromViewController.view.transform = CGAffineTransformMakeScale(1.0 - kRZPushScaleChangePct, 1.0 - kRZPushScaleChangePct);
+                             
                          }
                          completion:^(BOOL finished) {
                              //toViewController.view.transform = CGAffineTransformIdentity;
