@@ -42,13 +42,22 @@
     UIViewController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     UIView *container = [transitionContext containerView];
+    UIModalPresentationStyle style =[transitionContext presentationStyle];
     
     toViewController.view.userInteractionEnabled = YES;
     
     if (!self.isPositiveAnimation)
     {
         fromViewController.view.opaque = NO;
-        [container insertSubview:toViewController.view belowSubview:fromViewController.view];
+        
+        
+        /*if its a pus/pop instead of presentation */
+        if(style==UIModalPresentationNone){
+        
+            [container insertSubview:toViewController.view belowSubview:fromViewController.view];
+        }
+        
+        
         
         [UIView animateWithDuration:kRZZoomAlphaTransitionTime
                               delay:0
@@ -58,8 +67,8 @@
                              fromViewController.view.transform =  CGAffineTransformMakeScale(kRZZoomAlphaMaxScale, kRZZoomAlphaMaxScale);
                          }
                          completion:^(BOOL finished) {
-                             fromViewController.view.alpha = 1.f;
-                             fromViewController.view.transform = CGAffineTransformIdentity;
+                             
+                             fromViewController.view.opaque = YES;
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
     }
@@ -76,6 +85,7 @@
                          animations:^{
                              toViewController.view.alpha = 1.f;
                              toViewController.view.transform = CGAffineTransformIdentity;
+                             toViewController.view.frame= fromViewController.view.frame;
                          }
                          completion:^(BOOL finished) {
                              toViewController.view.opaque = YES;
