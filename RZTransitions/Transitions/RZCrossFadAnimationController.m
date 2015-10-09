@@ -26,6 +26,8 @@
     
     if (self.isPositiveAnimation)
     {
+        //this makes sure our contraints are reset and updated
+        toViewController.view.frame= container.bounds;
         [container insertSubview:toViewController.view belowSubview:fromViewController.view];
         //toViewController.view.transform = CGAffineTransformMakeScale(1.0 - kRZPushScaleChangePct, 1.0 - kRZPushScaleChangePct);
         
@@ -41,8 +43,7 @@
                              
                              fromViewController.view.alpha = 1.0f;
                              
-                             //this makes sure our contraints are reset and updated
-                             toViewController.view.frame= container.bounds;
+                             
 
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
