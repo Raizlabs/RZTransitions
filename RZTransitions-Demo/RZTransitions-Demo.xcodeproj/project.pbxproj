@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FC0144D1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC0144C1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.m */; };
 		833E36A8184E29C300A0326A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833E36A7184E29C300A0326A /* Foundation.framework */; };
 		833E36AA184E29C300A0326A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833E36A9184E29C300A0326A /* CoreGraphics.framework */; };
 		833E36AC184E29C300A0326A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 833E36AB184E29C300A0326A /* UIKit.framework */; };
@@ -94,6 +95,8 @@
 
 /* Begin PBXFileReference section */
 		1AFF28BF77D4456B8788B566 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FC0144B1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RZZoomFromPointAnimationController.h; sourceTree = "<group>"; };
+		6FC0144C1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RZZoomFromPointAnimationController.m; sourceTree = "<group>"; };
 		833E36A4184E29C300A0326A /* RZTransitions-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RZTransitions-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		833E36A7184E29C300A0326A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		833E36A9184E29C300A0326A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -385,6 +388,8 @@
 		9A0F7C7E195A0B9500271D1D /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
+				6FC0144B1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.h */,
+				6FC0144C1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.m */,
 				9A0F7C7F195A0B9500271D1D /* RZAnimationControllerProtocol.h */,
 				9A0F7C80195A0B9500271D1D /* RZCardSlideAnimationController.h */,
 				9A0F7C81195A0B9500271D1D /* RZCardSlideAnimationController.m */,
@@ -611,6 +616,7 @@
 				9A0F7C9A195A0B9500271D1D /* RZOverscrollInteractionController.m in Sources */,
 				9A0F7C9B195A0B9500271D1D /* RZPinchInteractionController.m in Sources */,
 				9A0F7C98195A0B9500271D1D /* RZBaseSwipeInteractionController.m in Sources */,
+				6FC0144D1C28AAAC000E70F3 /* RZZoomFromPointAnimationController.m in Sources */,
 				837D08C21859000F00E20B37 /* RZSimpleCollectionViewController.m in Sources */,
 				833E3702184E5DB400A0326A /* RZSimpleColorViewController.m in Sources */,
 				9A0F7C9D195A0B9500271D1D /* RZTransitionsManager.m in Sources */,
