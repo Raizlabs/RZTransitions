@@ -94,6 +94,9 @@
                     [self.fromViewController.navigationController popViewControllerAnimated:YES];
                 }
                 else if (self.action & RZTransitionAction_Dismiss) {
+                    [[NSNotificationCenter defaultCenter]
+                     postNotificationName:@"disableRotation"
+                     object:nil];
                     [self.fromViewController dismissViewControllerAnimated:YES completion:nil];
                 }
             }
