@@ -240,6 +240,18 @@ static NSString* const kRZTTransitionsKeySpacer = @"_";
 
 #pragma mark - UINavigationControllerDelegate
 
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if ([self.navDelegate respondsToSelector:@selector(navigationController:willShowViewController:animated:)]) {
+        [self.navDelegate navigationController:navigationController willShowViewController:viewController animated:animated];
+    }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if ([self.navDelegate respondsToSelector:@selector(navigationController:didShowViewController:animated:)]) {
+        [self.navDelegate navigationController:navigationController didShowViewController:viewController animated:animated];
+    }
+}
+
 - (id <UIViewControllerInteractiveTransitioning>)navigationController:(UINavigationController *)navigationController
                           interactionControllerForAnimationController:(id <UIViewControllerAnimatedTransitioning>) animationController
 {

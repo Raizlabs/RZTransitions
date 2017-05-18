@@ -53,6 +53,8 @@
  */
 @property (strong, nonatomic) id<RZAnimationControllerProtocol> _Nullable defaultTabBarAnimationController;
 
+@property (weak, nonatomic) id<UINavigationControllerDelegate> navDelegate;
+
 #pragma mark - Shared Instance
 
 + (RZTransitionsManager *_Nonnull)shared;

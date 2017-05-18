@@ -82,7 +82,10 @@
             if ( positiveDirection && self.nextViewControllerDelegate &&
                 [self.nextViewControllerDelegate conformsToProtocol:@protocol(RZTransitionInteractionControllerDelegate)] ) {
                 if ( self.action & RZTransitionAction_Push ) {
-                    [self.fromViewController.navigationController pushViewController:[self.nextViewControllerDelegate nextViewControllerForInteractor:self] animated:YES];
+                    if ([self.nextViewControllerDelegate nextViewControllerForInteractor:self] != nil) {
+                        [self.interactionDelegate interactionStart:true];
+                        [self.fromViewController.navigationController pushViewController:[self.nextViewControllerDelegate nextViewControllerForInteractor:self] animated:YES];
+                    }
                 }
                 else if ( self.action & RZTransitionAction_Present ) {
                     // TODO: set and store a completion
@@ -91,7 +94,10 @@
             }
             else {
                 if (self.action & RZTransitionAction_Pop) {
-                    [self.fromViewController.navigationController popViewControllerAnimated:YES];
+                    if (self.fromViewController.navigationController.viewControllers.count > 1) {
+                        [self.interactionDelegate interactionStart:false];
+                        [self.fromViewController.navigationController popViewControllerAnimated:YES];
+                    }
                 }
                 else if (self.action & RZTransitionAction_Dismiss) {
                     [self.fromViewController dismissViewControllerAnimated:YES completion:nil];
@@ -102,6 +108,7 @@
         case UIGestureRecognizerStateChanged:
             if (self.isInteractive) {
                 self.shouldCompleteTransition = (percentage >= [self swipeCompletionPercent]);
+                [self.interactionDelegate updateProgress:percentage];
                 [self updateInteractiveTransition:percentage];
             }
             break;
@@ -110,9 +117,11 @@
         case UIGestureRecognizerStateEnded:
             if (self.isInteractive) {
                 if (!self.shouldCompleteTransition) {
+                    [self.interactionDelegate interactionEnd:true];
                     [self cancelInteractiveTransition];
                 }
                 else {
+                    [self.interactionDelegate interactionEnd:false];
                     [self finishInteractiveTransition];
                 }
 

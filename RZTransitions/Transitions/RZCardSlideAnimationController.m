@@ -85,30 +85,32 @@
                          }];
     }
     else {
-        [container addSubview:toView];
-
-        if ( self.horizontalOrientation ) {
-            toView.transform = CGAffineTransformMakeTranslation(-container.bounds.size.width, 0);
-        }
-        else {
-            toView.transform = CGAffineTransformMakeTranslation(0, container.bounds.size.height);
-        }
-
+        
+        [container insertSubview:toView belowSubview:fromView];
+        toView.frame = container.frame;
+        toView.transform = CGAffineTransformMakeScale(1.0 - kRZSlideScaleChangePct, 1.0 - kRZSlideScaleChangePct);
+        toView.alpha = 0.1f;
+        
         [UIView animateWithDuration:[self transitionDuration:transitionContext]
                               delay:0
                             options:UIViewAnimationOptionCurveEaseOut
                          animations:^{
                              toView.transform = CGAffineTransformIdentity;
-                             fromView.transform = CGAffineTransformMakeScale(1.0 - kRZSlideScaleChangePct, 1.0 - kRZSlideScaleChangePct);
-                             fromView.alpha = 0.1f;
+                             toView.alpha = 1.0f;
+                             if ( self.horizontalOrientation ) {
+                                 fromView.transform = CGAffineTransformMakeTranslation(container.bounds.size.width, 0);
+                             }
+                             else {
+                                 fromView.transform = CGAffineTransformMakeTranslation(0, container.bounds.size.height);
+                             }
                          }
                          completion:^(BOOL finished) {
                              toView.transform = CGAffineTransformIdentity;
                              fromView.transform = CGAffineTransformIdentity;
-                             fromView.alpha = 1.0f;
                              [bgView removeFromSuperview];
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
+        
     }
 }
 
