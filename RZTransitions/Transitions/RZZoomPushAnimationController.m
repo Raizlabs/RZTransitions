@@ -44,8 +44,8 @@
     UIView *container = [transitionContext containerView];
     
     if ( self.isPositiveAnimation ) {
-        toView.frame = container.frame;
         [container insertSubview:toView belowSubview:fromView];
+        toView.frame = [(NSObject *)transitionContext rzt_toViewFinalFrame];
         toView.transform = CGAffineTransformMakeScale(1.0 - kRZPushScaleChangePct, 1.0 - kRZPushScaleChangePct);
 
         [UIView animateWithDuration:kRZPushTransitionTime

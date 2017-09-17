@@ -12,5 +12,6 @@
 
 - (UIView *)rzt_toView;
 - (UIView *)rzt_fromView;
+- (CGRect)rzt_toViewFinalFrame;
 
 @end
