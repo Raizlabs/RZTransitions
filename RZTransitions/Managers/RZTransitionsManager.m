@@ -158,6 +158,10 @@ static NSString* const kRZTTransitionsKeySpacer = @"_";
     
     // Find the dismissed view controller's view controller it is returning to
     UIViewController *presentingViewController = dismissed.presentingViewController;
+    if ( [presentingViewController isKindOfClass:[UITabBarController class]] ) {
+        UITabBarController *tabBarController = (UITabBarController *) presentingViewController;
+        presentingViewController = tabBarController.selectedViewController;
+    }
     if ( [presentingViewController isKindOfClass:[UINavigationController class]] ) {
         UIViewController *childVC = (UIViewController *)[[presentingViewController childViewControllers] lastObject];
         if ( childVC != nil ) {
