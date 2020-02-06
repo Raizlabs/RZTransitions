@@ -60,7 +60,7 @@
 
     if ( self.isPositiveAnimation ) {
         [container insertSubview:toView belowSubview:fromView];
-        toView.frame = container.frame;
+        toView.frame = [(NSObject *)transitionContext rzt_toViewFinalFrame];
         toView.transform = CGAffineTransformMakeScale(1.0 - kRZSlideScaleChangePct, 1.0 - kRZSlideScaleChangePct);
         toView.alpha = 0.1f;
 

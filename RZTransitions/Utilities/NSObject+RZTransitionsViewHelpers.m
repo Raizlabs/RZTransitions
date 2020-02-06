@@ -20,6 +20,12 @@
     return [self _RZTViewHelper:NO];
 }
 
+- (CGRect)rzt_toViewFinalFrame
+{
+    id<UIViewControllerContextTransitioning> context = (id<UIViewControllerContextTransitioning>)self;
+    return [context finalFrameForViewController:[context viewControllerForKey:UITransitionContextToViewControllerKey]];
+}
+
 - (UIView *)_RZTViewHelper:(BOOL)isTo
 {
     NSAssert([self conformsToProtocol:@protocol(UIViewControllerContextTransitioning)], @"bad parameter");
