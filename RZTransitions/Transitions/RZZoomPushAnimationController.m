@@ -42,6 +42,7 @@
     UIView *toView = [(NSObject *)transitionContext rzt_toView];
     UIView *fromView = [(NSObject *)transitionContext rzt_fromView];
     UIView *container = [transitionContext containerView];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     if ( self.isPositiveAnimation ) {
         toView.frame = container.frame;
@@ -86,6 +87,8 @@
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
     }
+    
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext

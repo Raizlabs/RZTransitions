@@ -58,6 +58,7 @@ static const CGFloat kRZRectZoomDefaultSpringVelocity     = 15.0f;
     UIView *fromView = [(NSObject *)transitionContext rzt_fromView];
     UIView *toView = [(NSObject *)transitionContext rzt_toView];
     UIView *container = [transitionContext containerView];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
 
     CGRect originalFrame = fromView.frame;
     CGRect cellFrame = CGRectZero;
@@ -124,6 +125,8 @@ static const CGFloat kRZRectZoomDefaultSpringVelocity     = 15.0f;
                              }];
         }];
     }
+    
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext

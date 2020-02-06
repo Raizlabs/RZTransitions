@@ -44,6 +44,7 @@
     UIView *fromView = [(NSObject *)transitionContext rzt_fromView];
     UIView *toView = [(NSObject *)transitionContext rzt_toView];
     UIView *container = [transitionContext containerView];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     
     toView.userInteractionEnabled = YES;
     
@@ -82,6 +83,8 @@
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
     }
+    
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext

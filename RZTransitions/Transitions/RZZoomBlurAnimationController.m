@@ -146,6 +146,8 @@ static char kRZZoomBlurImageAssocKey;
                              [transitionContext completeTransition:!transitionContext.transitionWasCancelled];
                          }];
     }
+    
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext

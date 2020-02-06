@@ -39,6 +39,7 @@
     UIView *fromView = [(NSObject *)transitionContext rzt_fromView];
     UIView *toView = [(NSObject *)transitionContext rzt_toView];
     UIView *container = [transitionContext containerView];
+    UIViewController *toViewController = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
  
     [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
         [fromView setTransform:CGAffineTransformMakeScale(0.1, 0.1)];
@@ -55,6 +56,8 @@
         }];
         
     }];
+    
+    toViewController.view.frame = [transitionContext finalFrameForViewController:toViewController];
 }
 
 - (NSTimeInterval)transitionDuration:(id<UIViewControllerContextTransitioning>)transitionContext
